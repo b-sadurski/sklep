@@ -1,0 +1,344 @@
+/* reset*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  font-size:100%;
+  font:inherit;
+  vertical-align:baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display:block;
+}
+
+body {
+  line-height:1;
+}
+
+ul, ol {
+  list-style:none;
+}
+
+blockquote, q {
+  quotes:none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content:'';
+  content:none;
+}
+
+table {
+  border-collapse:collapse;
+  border-spacing:0;
+}
+
+
+
+/* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #fff;
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    background: #ebebeb;
+    max-width: 1263px;
+    margin: 0 auto;
+    background-color:  #0A0A0A;
+}
+
+h1 {
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+strong {
+    font-weight: bold;
+}
+
+/* 0. General */
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+.oneTwo {
+    display: inline-block;
+    margin-right: 1%;
+    
+    width: 49.3%;
+}
+
+.right {
+
+    float: right;
+}
+.left {
+
+  float: left;
+}
+.image {
+    margin-bottom: 20px;
+    background: #fff;
+    border-radius: 3px;
+    border: solid 1px #d8d9db;
+    height: 150px;
+}
+.inline {
+    display: inline-block;
+}
+/* 1. Master Header */
+
+#master-header {
+    background: #2B2B2B;
+    padding: 25px 0;
+    height: 90px;
+    position: relative;
+  
+
+}
+    #master-header #logo {
+        position: relative;
+        
+        display: inline-block;
+    }
+    
+    #master-header nav {
+        position:absolute;
+        top:40px;
+        left:300px;
+        display: inline-block;
+     
+
+    }
+    
+    #master-header a {
+        
+        font-size: 1.1rem;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    #master-header li
+     {
+        display: inline-block;
+        margin-right: 20px;
+    }
+    #log{
+        position:absolute;
+        right:95px;
+        top:40px;        
+    }
+    div.logo{
+        margin-left: 100px;
+        display:inline-block;
+        height:52px;
+         width: 52px;
+         border-radius: 100%;
+         background-color:red; 
+    }
+     #master-header i{
+        position: relative;
+        font-size: 42px;
+        color:white;
+        left:5px;
+        top:5px; 
+     }
+
+     
+     
+/* 2. Slider */
+
+#slider-wrapper {
+    overflow: hidden;
+    width: 1263px;
+}
+
+    #slider {
+        font-size: 0;
+        position: relative;
+         width: 3840px;
+         -webkit-animation: slide 10s infinite;
+    }   
+            #slider,
+            #slider li {
+                height: 466px;
+             }
+        
+            #slider li {
+                 font-size: 1rem;
+                 display: inline-block;
+                 width: 1263px;
+            }
+
+            #slider .slide1 {
+                background: url("img/slide1.jpg") center; 
+             }
+
+            #slider .slide2 {
+                background: url("img/slide2.jpg") center; 
+            }
+
+            #slider .slide3 {
+                background: url("img/slide3.jpg") center; 
+            }
+
+/* 3. Main */
+
+
+#main {
+     padding: 50px 0 90px 0;
+     font-family: "Georgia","serif";
+     background-color: black;
+     width: 1263px;
+      position: relative;
+      overflow: hidden;
+}
+        #subscribe{
+            background-color: #262626;
+
+            padding-top: 0;
+            margin: 0 auto;
+            padding: 30px;
+        }
+            #subscribe h1{
+                font-size: 42px;
+                margin:0 auto;
+             }
+            
+            #subscribe form{
+            font-size: 22px;
+            margin: 20px;
+            }
+           
+            #subscribe input{
+            width: 270px;
+            height: 45px;
+
+            }
+.wrapper2{   
+     margin: 0 auto;
+     position: relative;
+     top:-80px;
+     background-color: white;
+}
+#submit{
+    display: inline-block;
+    border: 3px black solid;
+    height: 40px;
+}
+.oneTwo img{
+    width: 20%;
+    
+}
+
+.galery{
+    color:white;
+
+}
+
+/* Footer */
+
+#master-footer {
+    text-align: center;
+    font-size: 0.8rem;
+    background: #fff;
+    color: #373535;
+    line-height: 70px;
+    height: 70px;
+}
+
+    #master-footer #copyrights {
+        float: left;
+        display: inline-block;
+    }
+
+    #master-footer #footer-menu {
+        float: right;
+        display: inline-block;
+    }
+
+    #master-footer #socials-menu {
+        margin: 0 auto;
+        display: inline-block;
+    }
+    
+    #master-footer #footer-menu li,
+    #master-footer #socials-menu li {
+        padding-left: 10px;
+    }
+
+    #master-footer #footer-menu li,
+    #master-footer #footer-menu a,
+    #master-footer #socials-menu li,
+    #master-footer #socials-menu a {
+        display: inline-block;
+    }
+    
+    #master-footer #footer-menu a {
+        color: #373535;
+        text-decoration: none;
+    }
+
+    #master-footer #socials-menu a {
+        font-size: 1rem;
+        color: #fff;
+        background: #d1d1d1;
+        text-decoration: none;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 35px;
+        width: 35px;
+        height: 35px;
+    }
+
+     #master-footer #socials-menu a:hover {
+        background: #a0a0a0;
+     }
+
+/* site-sklep */
+.introImg{
+     margin-bottom: 50px;
+     background: url("img/slide3.jpg"); 
+     height: 170px;}
+#main2 {
+    min-height: 300px;
+
+}
+.menufilter{
+
+    background-color: white;
+    width: 8%;
+}
+.menufilter form input[type='submit']{
+    margin-bottom:10px;
+
+}
+/*galery*/
+
+.galeryWrapper p {
+
+    display:none;
+
+}
+.galery>div {
+
+    margin: 20px;
+}
+/* Animations */
+
+@-webkit-keyframes slide {
+    0% { left: 0; }
+    25% { left: -1280px; }
+    50% { left: -2520px; }
+    75% { left: -1280px; }
+    100% { left: 0; }
+}
+
