@@ -165,7 +165,10 @@ strong {
         font-size: 0;
         position: relative;
          width: 3840px;
+         
          -webkit-animation: slide 10s infinite;
+         -moz-animation: slide 10s infinite;
+         animation: slide 10s infinite;
     }   
             #slider,
             #slider li {
@@ -305,17 +308,40 @@ strong {
 
 /* site-sklep */
 .introImg{
-     margin-bottom: 50px;
+    
      background: url("img/slide3.jpg"); 
-     height: 170px;}
+     height: 170px;
+     position: relative;}
+         
+        .introImg .wrapper{
+          position:absolute;
+         font-size: 34px;
+        right:3%;
+         margin: 40px;
+        }
+            .introImg span{
+                font-size: 75px; 
+                color: red; 
+            }
+            .introImg #CartCounter{
+              position: relative;
+              right:43px;
+              top:25px;
+              z-index: 2;
+              font-size: 21px;
+              background-color:rgba(0, 0, 0, 0);
+             } 
 #main2 {
-    min-height: 300px;
+  padding-top: 50px;
+  min-height: 300px;
+  background-color: black;
+
 
 }
 .menufilter{
 
     background-color: white;
-    width: 8%;
+    width: 9%;
 }
 .menufilter form input[type='submit']{
     margin-bottom:10px;
@@ -323,16 +349,45 @@ strong {
 }
 /*galery*/
 
-.galeryWrapper p {
+
+.galery p {
 
     display:none;
+    cursor: pointer;
+    padding: 1px;
 
 }
+
 .galery>div {
 
     margin: 20px;
+    padding: 1px;
 }
+.galery>div img{
+margin: 2px;
+margin-left:2px;
+
+}
+/*koszyk*/
+#main3 {
+    padding-top: 50px;
+    min-height: 300px;
+    background-color: black;
+    color:white;
+   }
+#main3 table{
+width: 80%;
+
+}   
+
 /* Animations */
+@keyframes slide {
+    0% { left: 0; }
+    25% { left: -1280px; }
+    50% { left: -2520px; }
+    75% { left: -1280px; }
+    100% { left: 0; }
+}
 
 @-webkit-keyframes slide {
     0% { left: 0; }
@@ -341,4 +396,10 @@ strong {
     75% { left: -1280px; }
     100% { left: 0; }
 }
-
+@-mz-keyframes slide {
+    0% { left: 0; }
+    25% { left: -1280px; }
+    50% { left: -2520px; }
+    75% { left: -1280px; }
+    100% { left: 0; }
+}

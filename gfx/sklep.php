@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 require_once 'C:/xampp/htdocs/Sklep/model/DB.php';
 $modelDB = new DBT();
@@ -8,44 +7,57 @@ $products = $modelDB->getProducts();
 $productsNoRepeat=$modelDB->getProductsNoRepeat();
 ?>
 
-<?php require_once 'C:/xampp/htdocs/Sklep/head.php';?>  
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sklep</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,300,800&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style2.css">
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    
 <script type="text/javascript">
 var count;
 
-function PassVarToPhpByAjax(ProductId,count) { 
+function PassVarByAjax() { 
+var variableToSend = count;
+$.post("koszyk.php", {variable: variableToSend},function(data){
+$('#log').html(data);
 
-    $.post("add_product.php", {variable:count,variable2: ProductId},function(data){
-    }); 
+}); 
 
 }
 
-function AddProductToCart(event){
+function AddProductToCart(){
 
-     count=$('#CartCounter').html();
-     count=parseInt(count);
-     if (isNaN(count))count=0;
-     count++;
-      var ProductId=$(event.target).attr("class");
-      if (ProductId==="zakup right")         //jesli klikamy na spana pobierz rodzica czyli<p>
-        ProductId=$(event.target).parent().attr("class");
-      if(ProductId==='fa fa-shopping-cart') //jesli na ikone pobierz rodzica,rodzica czyli <p>
-      ProductId=$(event.target).parent().parent().attr("class"); 
-     PassVarToPhpByAjax(ProductId,count);
-    $('#CartCounter').html(count);
-    ObjectBlinkAnimate($(".introImg .wrapper"));
+ count=$('#CartCounter').html();
+ if (isNaN(count))count=0;
+
+ count=parseInt(count);
+ count++;
+ PassVarByAjax();
+
+$('#CartCounter').html(count);
+CartIconAnimate();
 
 
 }  
-function ObjectBlinkAnimate(par){
-    par.animate({opacity: 0},"fast" ).animate({opacity: 1} );
-}
-
+$(".introImg .wrapper").toggle(function() {
+  $this.animate({
+    width: "70%",
+    opacity: 0.4
     
+  }, 1000 );
+}, function() {
+  width: "100%",
+    opacity: 0.4
+},1000);
+    
+          $(document).ready(function(){
 
-
-      $(document).ready(function(){
-                   
+      
+               
         //funkcja pokazujaca liste rozmiarow z kolorami dla danego produktu po kliknieciu na obrazek
                 $('img').click(function(){
                     //var labe;
@@ -62,12 +74,12 @@ function ObjectBlinkAnimate(par){
 
         //funkcja pokazuje ramke przy aktywnym obrazku
             $('img').hover(function(){
-                     $(this).css({
-                     "border" : "2px red solid" });
+                       $(this).css({
+                       "border" : "2px red solid" });
 
-                        },function(){
+                          },function(){
 
-                          $(this).css({"border" : "none"})
+                            $(this).css({"border" : "none"})
                    });
 
 
@@ -88,14 +100,13 @@ function ObjectBlinkAnimate(par){
                 //zakup z listy     
                     $('p').click(AddProductToCart);
 
-     
 
 
         });
 </script>
 </head>
 <body>
-  <header id="master-header">
+	<header id="master-header">
           <div class="logo">
             <i class="fa fa-qq"></i>
         </div>
@@ -120,8 +131,9 @@ function ObjectBlinkAnimate(par){
 
     
 <div class="introImg">
-      <div class='wrapper'>
-        Uwaga dodano Produkt.<div id="CartCounter" class="right"><?php if(isset($_SESSION["cart_counter"]))echo $_SESSION["cart_counter"]; else echo"0";?></div><a href="koszyk.php"><span><i class="fa fa-shopping-cart"></i></span></a>
+      <div class='wrapper right'>
+        <div id="CartCounter" class="left"><?php echo '0'
+          ?></div><span><i class="fa fa-shopping-cart"></i></span>
       </div>
 </div>
 
@@ -138,7 +150,7 @@ function ObjectBlinkAnimate(par){
        </div>
            
         
-    <div id="test" class="galery">
+    <div class="galery">
   <?php
   /* Filtr produktow 
    produkty wybieram na podstawie tego ze code produktu(baza sql) jest dla
@@ -153,7 +165,7 @@ tworzy liste szczegolowa  rozmiar-kolor
          <label><?php echo $prod->name?></label><br/><img id="img" src="gfx/4.jpg"/><br/>
          Cena <?php echo $prod->price;
                 foreach($products as $prod2):?>
-                  <?php if ($prod2->name==$prod->name ) {?> <p class="<?php echo "$prod2->id";?>"> <?php echo  $prod2->additional_note ;?><span class="zakup right">Dodaj do<i class="fa fa-shopping-cart"></i></span></p>
+                  <?php if ($prod2->name==$prod->name ) {?> <p> <?php echo  $prod2->additional_note ;?><span class="zakup right">Dodaj do<i class="fa fa-shopping-cart"></i></span></p>
                 <?php } endforeach;?>
          </div>
        <?php  } endforeach;
@@ -166,7 +178,7 @@ tworzy liste szczegolowa  rozmiar-kolor
              <label><?php echo $prod->name?></label><br/><img id="img" src="gfx/4.jpg"/><br/>
              Cena <?php echo $prod->price;
                 foreach($products as $prod2):?>
-                  <?php if ($prod2->name==$prod->name ) {?> <p class="<?php echo "$prod2->id";?>"> <?php echo  $prod2->additional_note ;?><span class="zakup right">Dodaj do<i class="fa fa-shopping-cart"></i></span></p>
+                  <?php if ($prod2->name==$prod->name ) {?> <p> <?php echo  $prod2->additional_note ;?><span class="zakup right">Dodaj do<i class="fa fa-shopping-cart"></i></span></p>
                 <?php } endforeach;?>
            </div>
        <?php  } endforeach;
@@ -179,7 +191,7 @@ tworzy liste szczegolowa  rozmiar-kolor
           <label><?php echo $prod->name?></label><br/><img id="img" src="gfx/4.jpg"/><br/>
            Cena <?php echo $prod->price;
             foreach($products as $prod2):?>
-               <?php if ($prod2->name==$prod->name ) {?> <p class="<?php echo "$prod2->id";?>"> <?php echo  $prod2->additional_note ;?><span class="zakup right">Dodaj do<i class="fa fa-shopping-cart"></i></span></p>
+               <?php if ($prod2->name==$prod->name ) {?> <p> <?php echo  $prod2->additional_note ;?><span class="zakup right">Dodaj do<i class="fa fa-shopping-cart"></i></span></p>
             <?php } endforeach;?>
          </div>
       <?php  } endforeach;
@@ -193,7 +205,6 @@ tworzy liste szczegolowa  rozmiar-kolor
 
     <footer id="master-footer">
         <div class="wrapper">
-          
             <p id="copyrights">&copy; 2015 Bartek Sadurski. All Rights Reserved.</p>
 
             <ul id="socials-menu">
@@ -212,8 +223,6 @@ tworzy liste szczegolowa  rozmiar-kolor
                 <li><a href="#">Kariera</a></li>
             </ul>
         </div>
-        
     </footer>
-
 </body>
 </html>
